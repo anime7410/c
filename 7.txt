@@ -1,0 +1,182 @@
+# **COMPUTER NETWORKS – PRACTICAL 7 CHEAT SHEET**
+
+
+
+Quick execution guide
+
+Wireshark
+
+
+
+**Aim:** Capture and analyze live network traffic using Wireshark and apply various packet filters.
+
+## **1. Start Wireshark & Capture Traffic**
+
+1. Open Wireshark.
+2. Select active network interface (Wi-Fi / Ethernet).
+3. Double-click the interface to start capturing.
+4. Generate network traffic by opening a website or using CMD:
+
+```
+ping google.com
+```
+
+5\. Click the red Stop button to stop capturing.
+
+## **2. Understand Wireshark Interface**
+
+| Section        | Function                                      |
+| -------------- | --------------------------------------------- |
+| Packet List    | Displays captured packets                     |
+| Packet Details | Displays selected packet's protocol details   |
+| Packet Bytes   | Displays packet data in Hexadecimal and ASCII |
+
+**Important columns:** No., Time, Source, Destination, Protocol, Length, Info.
+
+## **3. Apply Display Filters**
+
+Enter the filter in the top display filter bar and press Enter.
+
+| Filter          | Purpose                |
+| --------------- | ---------------------- |
+| `tcp`           | Display TCP packets    |
+| `udp`           | Display UDP packets    |
+| `http`          | Display HTTP packets   |
+| `http.request`  | Display HTTP requests  |
+| `http.response` | Display HTTP responses |
+| `dns`           | Display DNS packets    |
+| `icmp`          | Display Ping packets   |
+| `arp`           | Display ARP packets    |
+
+**IP-based filters:**
+
+```
+ip.addr == 192.168.1.1
+ip.src == 192.168.1.1
+ip.dst == 192.168.1.1
+```
+
+## **4. Capture Filter vs Display Filter**
+
+| Capture Filter                    | Display Filter                 |
+| --------------------------------- | ------------------------------ |
+| Applied before capturing          | Applied after capturing        |
+| Controls packets captured         | Controls packets displayed     |
+| Uses capture filter syntax        | Uses display filter syntax     |
+| Excluded packets are not captured | Hidden packets remain captured |
+
+**Remember:** Capture = What to capture; Display = What to display.
+
+## **5. Analyze HTTP Traffic**
+
+1. Start packet capture.
+2. Visit an HTTP website.
+3. Stop capture.
+4. Apply filter:
+
+```
+http
+```
+
+5. Identify HTTP requests and responses.
+6. Examine request method (GET/POST), Host, URI and response status code (200/404).
+
+Useful filters:
+
+```
+http.request
+http.response
+```
+
+Note: HTTPS traffic is encrypted and normally cannot be inspected as readable HTTP content.
+
+## **6. Troubleshoot Network Problems**
+
+Generate traffic:
+
+```
+ping google.com
+```
+
+Apply Wireshark filter:
+
+```
+icmp
+```
+
+Observe:
+
+- Echo Request – Ping request sent.
+- Echo Reply – Ping response received.
+- Missing replies – Possible packet loss.
+- High response time – Possible latency.
+
+Additional filter:
+
+```
+tcp.analysis.retransmission
+```
+
+Displays TCP retransmissions.
+
+## **7. Save Captured Packets**
+
+1. Click File.
+2. Select Save As.
+3. Choose destination folder.
+4. Save with `.pcapng` extension.
+
+## **8. Important Wireshark Menus**
+
+| Menu       | Function                                 |
+| ---------- | ---------------------------------------- |
+| File       | Open, save and export captures           |
+| Edit       | Find and mark packets                    |
+| View       | Control packet display                   |
+| Go         | Navigate to specific packet              |
+| Capture    | Start/stop capture                       |
+| Analyze    | Configure filters and follow TCP streams |
+| Statistics | Packet and protocol statistics           |
+| Telephony  | Analyze telephony traffic                |
+
+## **9. Important Theory – Viva**
+
+| Term      | Meaning                                |
+| --------- | -------------------------------------- |
+| Wireshark | Open-source packet analyzer            |
+| Packet    | Formatted unit of network data         |
+| Protocol  | Rules governing network communication  |
+| TCP       | Reliable, connection-oriented protocol |
+| UDP       | Connectionless transport protocol      |
+| HTTP      | Hypertext Transfer Protocol            |
+| DNS       | Domain Name System                     |
+| ICMP      | Internet Control Message Protocol      |
+| ARP       | Address Resolution Protocol            |
+| GPL       | GNU General Public License             |
+
+## **10. Viva – Quick Revision**
+
+1. **What is Wireshark?** Open-source software used to capture and analyze network packets.
+2. **Who developed Wireshark originally?** Gerald Combs; originally named Ethereal.
+3. **What is the original name of Wireshark?** Ethereal.
+4. **When was it renamed?** 2006.
+5. **What is packet analysis?** Examining captured packets to understand network communication.
+6. **What is a capture filter?** Filters packets before capturing.
+7. **What is a display filter?** Filters captured packets for display.
+8. **What is the TCP filter?** `tcp`.
+9. **What is the HTTP request filter?** `http.request`.
+10. **How do you identify packet loss?** Examine missing ICMP Echo Replies and relevant retransmissions.
+11. **What is the file extension?** `.pcapng`.
+12. **What is Simulation/Realtime mode?** These are Packet Tracer modes, not Wireshark modes.
+
+## **11. Conclusion**
+
+Successfully captured live network traffic using Wireshark, examined packet details and applied display filters such as TCP and HTTP to analyze network communication.
+
+**Last-minute execution formula**
+
+## **Open → Interface → Capture → Generate Traffic → Stop → Filter → Analyze → Save**
+
+Remember these eight stages to perform Practical 7 independently.
+
+**Most important filters to memorize:** `tcp`, `udp`, `http`, `http.request`, `dns`, `icmp`, `arp`.

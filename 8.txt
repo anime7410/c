@@ -1,0 +1,268 @@
+# **COMPUTER NETWORKS – PRACTICAL 8 CHEAT SHEET**
+
+
+
+Quick execution guide
+
+Wireshark
+
+
+
+**Aim:** Capture and analyze HTTP, FTP, Telnet and DHCP packets using Wireshark.
+
+## **1. Start Packet Capture**
+
+1. Open Wireshark.
+2. Select active Wi-Fi / Ethernet interface.
+3. Double-click to start capturing.
+4. Generate network traffic.
+5. Click the red Stop button after generating traffic.
+
+## **2. Capture HTTP Packets**
+
+**Generate traffic:**
+
+- Open browser.
+- Visit `http://neverssl.com`.
+
+**Apply filters:**
+
+```
+http
+http.request
+http.response
+```
+
+**Observe:** GET, POST, Host, Request URI, Response Status (200 OK, 404 Not Found).
+
+**Port:** TCP 80.
+
+## **3. Capture FTP Packets**
+
+**Generate traffic using Command Prompt:**
+
+```
+ftp 10.10.10.2
+```
+
+Login and execute:
+
+```
+dir
+put hello.txt
+get hello.txt
+bye
+```
+
+**Apply filters:**
+
+```
+ftp
+tcp.port == 21
+```
+
+**Observe:**
+
+| Command | Meaning       |
+| ------- | ------------- |
+| USER    | Username      |
+| PASS    | Password      |
+| LIST    | List files    |
+| STOR    | Upload file   |
+| RETR    | Download file |
+
+**Ports:** TCP 21 (control), TCP 20 (active-mode data).
+
+## **4. Capture Telnet Packets**
+
+**Connect to an authorized Telnet server:**
+
+```
+telnet SERVER_IP
+```
+
+Login and execute a command.
+
+**Apply filters:**
+
+```
+telnet
+tcp.port == 23
+```
+
+**Observe:** Source IP, destination IP, TCP ports and Telnet data.
+
+**Port:** TCP 23.
+
+Note: Telnet Client must be enabled in Windows, and a Telnet server must be available.
+
+## **5. Capture DHCP Packets**
+
+Open Command Prompt as Administrator:
+
+```
+ipconfig /release
+ipconfig /renew
+```
+
+**Apply filters:**
+
+```
+dhcp
+```
+
+If required:
+
+```
+bootp
+```
+
+**Observe DORA process:**
+
+| Step | Message  | Function                   |
+| ---- | -------- | -------------------------- |
+| D    | Discover | Client searches for server |
+| O    | Offer    | Server offers IP           |
+| R    | Request  | Client requests IP         |
+| A    | ACK      | Server confirms IP         |
+
+**Ports:** UDP 67 (server), UDP 68 (client).
+
+## **6. Important DHCP Options**
+
+| Option | Function               |
+| ------ | ---------------------- |
+| 1      | Subnet Mask            |
+| 3      | Default Gateway        |
+| 6      | DNS Server             |
+| 51     | IP Lease Time          |
+| 53     | DHCP Message Type      |
+| 54     | DHCP Server Identifier |
+
+Wireshark → Select DHCP packet → Expand DHCP → Expand Options.
+
+## **7. Observe IPv4 and IPv6 Headers**
+
+Apply filters:
+
+```
+ip
+ipv6
+```
+
+Select packet → Expand IPv4 / IPv6 in Packet Details.
+
+**IPv4 Header:**
+
+| Field           | Function                |
+| --------------- | ----------------------- |
+| Version         | IP version 4            |
+| IHL             | Header length           |
+| Total Length    | Total packet size       |
+| Identification  | Fragment identification |
+| Flags           | Fragmentation control   |
+| Fragment Offset | Fragment position       |
+| TTL             | Packet lifetime         |
+| Protocol        | TCP / UDP / ICMP        |
+| Header Checksum | Header error checking   |
+| Source IP       | Sender address          |
+| Destination IP  | Receiver address        |
+
+**IPv4 facts:** 32-bit address, 20–60 bytes header.
+
+**IPv6 Header:**
+
+| Field               | Function                |
+| ------------------- | ----------------------- |
+| Version             | IP version 6            |
+| Traffic Class       | Traffic priority        |
+| Flow Label          | Identifies packet flow  |
+| Payload Length      | Payload size            |
+| Next Header         | Next protocol           |
+| Hop Limit           | Packet forwarding limit |
+| Source Address      | Sender address          |
+| Destination Address | Receiver address        |
+
+**IPv6 facts:** 128-bit address, fixed 40-byte header, no header checksum.
+
+## **8. TCP Three-Way Handshake**
+
+Important viva
+
+| Step | Flag    | Function                   |
+| ---- | ------- | -------------------------- |
+| 1    | SYN     | Client requests connection |
+| 2    | SYN-ACK | Server acknowledges        |
+| 3    | ACK     | Client confirms            |
+
+## **9. Protocol Hierarchy**
+
+1. Capture packets.
+2. Stop capture.
+3. Click Statistics.
+4. Select Protocol Hierarchy.
+
+**Displays:**
+
+- Protocol names.
+- Percentage of packets.
+- Number of packets.
+- Percentage of bytes.
+- Total bytes.
+
+## **10. Important Filters – Quick Revision**
+
+| Protocol      | Filter           |
+| ------------- | ---------------- |
+| HTTP          | `http`           |
+| HTTP Request  | `http.request`   |
+| HTTP Response | `http.response`  |
+| FTP           | `ftp`            |
+| FTP Port      | `tcp.port == 21` |
+| Telnet        | `telnet`         |
+| Telnet Port   | `tcp.port == 23` |
+| DHCP          | `dhcp`           |
+| IPv4          | `ip`             |
+| IPv6          | `ipv6`           |
+| TCP           | `tcp`            |
+| UDP           | `udp`            |
+
+## **11. Viva – Quick Revision**
+
+1. **What is Wireshark?** Open-source network packet analyzer.
+2. **What is HTTP?** Protocol used for web communication.
+3. **What is FTP?** Protocol used for file transfer.
+4. **What is Telnet?** Protocol for remote command-line access.
+5. **What is DHCP?** Automatically assigns IP configuration.
+6. **HTTP port?** TCP 80.
+7. **FTP ports?** TCP 20 and 21 (active-mode data and control).
+8. **Telnet port?** TCP 23.
+9. **DHCP ports?** UDP 67 and 68.
+10. **What is DORA?** Discover, Offer, Request, Acknowledgement.
+11. **IPv4 address size?** 32 bits.
+12. **IPv6 address size?** 128 bits.
+13. **IPv4 header size?** 20–60 bytes.
+14. **IPv6 header size?** Fixed 40 bytes.
+15. **What is TCP handshake?** SYN, SYN-ACK, ACK.
+16. **Why is HTTP insecure?** Data is transmitted without encryption.
+17. **Why is Telnet insecure?** Credentials and communication are unencrypted.
+18. **What is Protocol Hierarchy?** Displays protocol-wise packet and byte statistics.
+
+## **12. Conclusion**
+
+Successfully captured and analyzed HTTP, FTP, Telnet and DHCP packets using Wireshark, applied protocol filters, examined IPv4/IPv6 headers and studied DHCP options and protocol hierarchy.
+
+**Last-minute execution formula**
+
+## **Capture → HTTP → FTP → Telnet → DHCP → IPv4/IPv6 → Protocol Hierarchy**
+
+**Four protocols to remember**
+
+| Protocol | Port   | Main purpose  |
+| -------- | ------ | ------------- |
+| HTTP     | 80     | Web           |
+| FTP      | 20, 21 | File transfer |
+| Telnet   | 23     | Remote login  |
+| DHCP     | 67, 68 | IP allocation |
+
+**Examination priority:** Memorize the four protocols, their port numbers, Wireshark filters, DORA sequence, TCP handshake and IPv4/IPv6 header differences.

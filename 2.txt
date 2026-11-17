@@ -1,0 +1,150 @@
+# **COMPUTER NETWORKS – PRACTICAL 2 CHEAT SHEET**
+
+
+
+Quick practical reference
+
+Cisco Packet Tracer
+
+
+
+**Practical 2** Implement LAN using Star Topology and verify connectivity between computers.
+
+## **1. Star Topology – Execution Steps**
+
+**Step 1. Open Cisco Packet Tracer** → Select Logical Workspace.
+
+**Step 2. Add devices**
+
+- End Devices → Add 5 PCs (PC0–PC4).
+- Network Devices → Switches → Select 2950-24.
+
+**Step 3. Connect devices**
+
+- Select Connections (Lightning icon).
+- Select Copper Straight-Through.
+- Connect each PC's `FastEthernet0` to a separate switch port.
+
+| PC  | Switch port |
+| --- | ----------- |
+| PC0 | Fa0/1       |
+| PC1 | Fa0/2       |
+| PC2 | Fa0/3       |
+| PC3 | Fa0/4       |
+| PC4 | Fa0/5       |
+
+**Step 4. Assign static IP addresses**
+
+For each PC: Click PC → Desktop → IP Configuration → Static.
+
+| PC  | IP Address  | Subnet Mask   |
+| --- | ----------- | ------------- |
+| PC0 | 192.168.1.1 | 255.255.255.0 |
+| PC1 | 192.168.1.2 | 255.255.255.0 |
+| PC2 | 192.168.1.3 | 255.255.255.0 |
+| PC3 | 192.168.1.4 | 255.255.255.0 |
+| PC4 | 192.168.1.5 | 255.255.255.0 |
+
+Default Gateway and DNS: Leave blank.
+
+**Step 5. Test connectivity**
+
+PC0 → Desktop → Command Prompt:
+
+```
+ping 192.168.1.2
+```
+
+
+
+Success
+
+`Reply from 192.168.1.2` and 0% packet loss.
+
+
+
+**Step 6. Save the project** using File → Save As.
+
+## **2. Other Topologies – Quick Implementation**
+
+| Topology | Implementation                                                                               |
+| -------- | -------------------------------------------------------------------------------------------- |
+| Star     | All PCs connect to one central switch.                                                       |
+| Bus      | PCs connect to a shared medium; a hub-based simulation approximates shared-medium behaviour. |
+| Ring     | Connect switches in a circular arrangement.                                                  |
+| Mesh     | Connect every device directly to every other device (full mesh).                             |
+| Tree     | Connect multiple switches hierarchically.                                                    |
+| Hybrid   | Combine two or more topologies, e.g. two star networks connected together.                   |
+
+**Full mesh formula:**
+
+\\[ \text{Connections}=\frac{n(n-1)}{2} \\]
+
+For 4 devices = 6 connections.
+
+**Cable selection:**
+
+- PC to Switch → Copper Straight-Through.
+- Switch to Switch → Copper Cross-Over traditionally; automatic connection may also work.
+
+For a ring of switches, STP may block one redundant link to prevent loops.
+
+## **3. Important Theory – Quick Revision**
+
+| Term                | Meaning                                                  |
+| ------------------- | -------------------------------------------------------- |
+| LAN                 | Local Area Network                                       |
+| Star Topology       | All devices connected to central device                  |
+| Switch              | Connects devices and forwards frames using MAC addresses |
+| UTP                 | Unshielded Twisted Pair                                  |
+| RJ-45               | Common name for 8P8C Ethernet connector                  |
+| Static IP           | Manually assigned IP address                             |
+| Subnet Mask         | Identifies network and host portions                     |
+| Ping                | Tests network connectivity using ICMP                    |
+| Cisco Packet Tracer | Network simulation software                              |
+
+### **UTP Cable Categories (as given in writeup)**
+
+| Category | Use / Data rate |
+| -------- | --------------- |
+| Cat 1    | Telephone voice |
+| Cat 2    | 4 Mbps          |
+| Cat 3    | 10 Mbps         |
+| Cat 4    | 20 Mbps         |
+| Cat 5    | 100 Mbps        |
+
+### **Straight-through vs Crossover**
+
+- Straight-through: Same wiring standard at both ends (T568A–T568A or T568B–T568B).
+- Crossover: Different standards at both ends (T568A–T568B).
+
+### **IPv4 Address Classes**
+
+| Class | First octet range |
+| ----- | ----------------- |
+| A     | 1–126             |
+| B     | 128–191           |
+| C     | 192–223           |
+| D     | 224–239           |
+| E     | 240–255           |
+
+## **4. Viva – Must Remember**
+
+1. **Which topology is commonly preferred for LAN?** Star, because it is easy to manage, expand and troubleshoot.
+2. **What happens if the central switch fails?** The entire star network stops working.
+3. **Why use a switch?** To connect devices within a LAN and forward frames using MAC addresses.
+4. **Why assign different IP addresses?** To uniquely identify each network interface within the subnet.
+5. **Why use the same subnet mask?** To place the PCs in the same IP subnet.
+6. **Why use Ping?** To verify connectivity between computers.
+7. **What is Hybrid Topology?** Combination of two or more topologies.
+8. **What is Packet Tracer?** Cisco network simulation software.
+
+## **5. Conclusion**
+
+Successfully implemented a LAN using Cisco Packet Tracer with five PCs connected through a central switch in Star Topology. Assigned static IP addresses and verified connectivity using the Ping command.
+
+**Last-minute execution formula**
+
+## **PCs → Switch → Cables → IP → Ping**
+
+Remember these five stages and you can reproduce the core practical independently.

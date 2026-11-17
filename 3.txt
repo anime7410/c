@@ -1,0 +1,134 @@
+# **COMPUTER NETWORKS – PRACTICAL 3 CHEAT SHEET**
+
+
+
+Quick execution guide
+
+Cisco Packet Tracer
+
+
+
+**Aim:** Configure DHCP to automatically assign IP addresses to client devices in a LAN.
+
+## **1. Execution Steps**
+
+**Step 1. Open Cisco Packet Tracer** → Logical Workspace.
+
+**Step 2. Add devices**
+
+- 1 Server
+- 1 Switch (2950-24)
+- 3–4 PCs
+
+**Step 3. Connect devices**
+
+- Select Connections → Copper Straight-Through.
+- Connect Server and all PCs to separate switch ports.
+
+**Step 4. Configure Server IP**
+
+Server → Desktop → IP Configuration → Static.
+
+| Field       | Value           |
+| ----------- | --------------- |
+| IP Address  | `192.168.1.1`   |
+| Subnet Mask | `255.255.255.0` |
+| Gateway     | `0.0.0.0`       |
+| DNS         | `0.0.0.0`       |
+
+**Step 5. Enable DHCP**
+
+Server → Services → DHCP → Service ON.
+
+Configure the pool:
+
+| Field            | Value           |
+| ---------------- | --------------- |
+| Pool Name        | `Pool1`         |
+| Default Gateway  | `0.0.0.0`       |
+| DNS Server       | `0.0.0.0`       |
+| Start IP Address | `192.168.1.2`   |
+| Subnet Mask      | `255.255.255.0` |
+| Maximum Users    | `254`           |
+
+Click **Add/Save**.
+
+**Step 6. Configure client PCs**
+
+For every PC:
+
+PC → Desktop → IP Configuration → Select DHCP.
+
+DHCP request successful
+
+Example automatically assigned addresses:
+
+- PC0 → `192.168.1.2`
+- PC1 → `192.168.1.3`
+- PC2 → `192.168.1.4`
+
+**Step 7. Verify connectivity**
+
+PC0 → Desktop → Command Prompt:
+
+```
+ipconfig
+ping 192.168.1.3
+```
+
+Check successful replies.
+
+**Step 8. Save the project.**
+
+## **2. Important Concepts**
+
+| Term        | Meaning                                        |
+| ----------- | ---------------------------------------------- |
+| DHCP        | Dynamic Host Configuration Protocol            |
+| DHCP Server | Automatically assigns IP configuration         |
+| DHCP Pool   | Range of IP addresses available for allocation |
+| DHCP Client | Device requesting IP configuration             |
+| Static IP   | Manually assigned IP address                   |
+| Dynamic IP  | Automatically assigned IP address              |
+| DORA        | Four-step DHCP allocation process              |
+
+## **3. DORA Process**
+
+Must remember for viva
+
+| Step | Full form       | Function                        |
+| ---- | --------------- | ------------------------------- |
+| D    | Discover        | Client searches for DHCP server |
+| O    | Offer           | Server offers an IP address     |
+| R    | Request         | Client requests offered IP      |
+| A    | Acknowledgement | Server confirms allocation      |
+
+**Sequence: DISCOVER → OFFER → REQUEST → ACKNOWLEDGEMENT**
+
+## **4. Important Port Numbers**
+
+| Protocol    | Port   |
+| ----------- | ------ |
+| DHCP Server | UDP 67 |
+| DHCP Client | UDP 68 |
+
+## **5. Viva – Quick Revision**
+
+1. **What is DHCP?** Automatically assigns IP addresses and network configuration to clients.
+2. **What is a DHCP pool?** A predefined range of IP addresses available for allocation.
+3. **What is DORA?** Discover, Offer, Request, Acknowledgement.
+4. **Why does the server need a static IP?** So clients can consistently reach the DHCP server.
+5. **What is the difference between static and dynamic IP?** Static is manually assigned; dynamic is automatically assigned.
+6. **What is Cisco Packet Tracer?** Software used to simulate and configure computer networks.
+7. **What is a router?** A device that connects different IP networks.
+8. **What is the difference between hub and router?** Hub connects devices and broadcasts signals; router forwards packets between networks using IP routing.
+
+## **6. Conclusion**
+
+Successfully configured DHCP services in Cisco Packet Tracer to automatically assign IP addresses to client devices and verified connectivity using Ping.
+
+**Last-minute execution formula**
+
+## **Devices → Connections → Server IP → DHCP ON → Pool → Client DHCP → Ping**
+
+Remember these seven stages to reproduce Practical 3 independently.

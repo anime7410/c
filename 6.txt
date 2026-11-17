@@ -1,0 +1,164 @@
+# **COMPUTER NETWORKS – PRACTICAL 6 CHEAT SHEET**
+
+
+
+Quick execution guide
+
+TeamViewer
+
+
+
+**Aim:** Establish remote communication and access between two computers using TeamViewer.
+
+Important: Your newly uploaded PDF is Experiment 6 (TELNET/remote access using TeamViewer), not Experiment 8. The following cheat sheet follows the uploaded Experiment 6 writeup.
+
+## **1. Requirements**
+
+- Two computers (Host PC and Remote PC).
+- Internet connection.
+- TeamViewer installed on both computers.
+
+Download: [TeamViewer official website](https://www.teamviewer.com/?utm_source=chatgpt.com).
+
+## **2. Install TeamViewer**
+
+On both computers:
+
+1. Open TeamViewer installer.
+2. Select **Basic Installation**.
+3. Select **Personal / Non-commercial use**.
+4. Accept the license agreement.
+5. Click Install / Next.
+6. Open TeamViewer.
+
+## **3. Establish Remote Connection**
+
+Most important step
+
+**On Host PC (computer to be controlled):**
+
+1. Open TeamViewer.
+2. Note down **Your ID**.
+3. Note down **Password**.
+
+**On Remote PC (computer controlling the host):**
+
+1. Open TeamViewer.
+2. Enter Host PC's ID in **Partner ID**.
+3. Select **Remote Control**.
+4. Click Connect.
+5. Enter Host PC's password.
+6. Click Log On.
+
+[File:TeamViewer 15 Desktop Win English.png - Wikimedia Commons](https://images.openai.com/static-rsc-4/qDy-xnScXI-mi2O2PN7XiHqOETwJKmcUiWMWuSlS4of75RJGfJ8-oEwMQpMqTEIMuEX6GxqLmaOMK0-kogOgIfiqYwetRanDyAEGa7P-i2GukrBpBmV1mVwv6321HOX_MMNz0yO9SKVylezJwt0L8uaUTA8e-umS0VDNMIAN07M?purpose=inline)
+
+[commons.wikimedia.org](https://commons.wikimedia.org/wiki/File%3ATeamViewer_15_Desktop_Win_English.png?utm_source=chatgpt.com)
+
+
+
+Connection successful
+
+&#x20;Host computer's desktop appears on the Remote PC.
+
+
+
+## **4. Perform Remote Operations**
+
+After connection, perform these operations:
+
+- Move mouse pointer on remote desktop.
+- Open and close applications.
+- Move desktop icons.
+- Access folders and files.
+- Make permitted system configuration changes.
+
+## **5. File Transfer Between Computers**
+
+Important practical step
+
+1. Establish remote connection.
+2. On the remote-control window, click **Files & Extras**.
+3. Select **File Transfer**.
+4. File Transfer window opens.
+
+[Teamviewer File Transfer at Keith Turner blog](https://images.openai.com/static-rsc-4/k7WTPZaMqCoPIE7AMMoKxIRTxRy5SfGpgfJDOjBPoqBOr6kuVrMD1Cg8nxaZ1_9kffJExf9fTpdl8hQF4t30-wHRFCcZH9C8cTDliub6vhGDZ8n83dsD1cXjZQTTgVoqvGtDBhK0sKD-9yCPDe3HgN5ZVvIDMT7iW7c9qPh349o?purpose=inline)
+
+[storage.googleapis.com](https://storage.googleapis.com/dijffobmpejrle/teamviewer-file-transfer.html?utm_source=chatgpt.com)
+
+**File Transfer window:**
+
+| Side  | Contains              |
+| ----- | --------------------- |
+| Left  | Local computer files  |
+| Right | Remote computer files |
+
+5. Browse the required file on either side.
+6. Select the destination folder on the opposite side.
+7. Drag and drop the file.
+8. Wait for the transfer to complete.
+9. Verify the transferred file at the destination.
+
+## **6. Miscellaneous TeamViewer Functions**
+
+| Function          | Purpose                                                                |
+| ----------------- | ---------------------------------------------------------------------- |
+| Chat              | Communicate with remote user                                           |
+| Session Recording | Record remote session in `.tvs` format                                 |
+| LAN Connections   | Connect using local IP / machine name when LAN connections are enabled |
+| Remote Update     | Update TeamViewer on remote computer                                   |
+
+## **7. Important Theory – Viva**
+
+| Term             | Meaning                                    |
+| ---------------- | ------------------------------------------ |
+| TeamViewer       | Remote access and control software         |
+| Remote Control   | Control another computer remotely          |
+| Partner ID       | ID of the computer to connect to           |
+| Session Password | Password used for authentication           |
+| File Transfer    | Transfer files between connected computers |
+| Remote Access    | Access another computer over a network     |
+| `.tvs`           | TeamViewer session recording format        |
+
+## **8. Viva – Quick Revision**
+
+1. **What is Telnet?** An application-layer client-server protocol used for remote login and communication with another computer.
+2. **What is the default Telnet port?** TCP port 23.
+3. **What is TeamViewer?** Software used for remote computer access, control, meetings and file transfer.
+4. **What is Partner ID?** Unique ID used to identify the remote computer.
+5. **What is Remote Control?** A feature that allows one computer to operate another computer remotely.
+6. **How do you transfer files in TeamViewer?** Files & Extras → File Transfer → Browse → Drag and Drop.
+7. **What is the use of Chat?** Communication between connected users.
+8. **What is session recording?** Recording a remote session in `.tvs` format.
+9. **Why is Telnet insecure?** It transmits communication, including credentials, without encryption.
+10. **Difference between Telnet and SSH?**
+
+| Telnet       | SSH                 |
+| ------------ | ------------------- |
+| TCP port 23  | TCP port 22         |
+| Unencrypted  | Encrypted           |
+| Less secure  | More secure         |
+| Remote login | Secure remote login |
+
+**Important distinction:** TeamViewer is not the Telnet protocol. Your writeup uses TeamViewer to demonstrate remote access and communication. TeamViewer connections are encrypted, unlike standard Telnet.
+
+## **9. Conclusion**
+
+Successfully established remote communication between two computers using TeamViewer, performed remote desktop operations and transferred files between local and remote computers.
+
+**Last-minute execution formula**
+
+## **Install → Open Both PCs → Note ID & Password → Enter Partner ID → Connect → Remote Control → File Transfer**
+
+**Remember these three things:**
+
+- Host PC provides ID and Password.
+- Remote PC enters Partner ID and connects.
+- Files & Extras → File Transfer → Drag and Drop.
+
+Reference: Uploaded Experiment 6 PDF. Installation and connection steps: pages 2–4; file transfer: pages 5–6; viva questions: page 6.&#x20;
+
+Exp6(2).pdf
+
+
+
+**Security:** Use only authorized computers, and never share your TeamViewer ID/password with unknown people.

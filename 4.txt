@@ -1,0 +1,192 @@
+# **COMPUTER NETWORKS – PRACTICAL 4 CHEAT SHEET**
+
+
+
+Quick execution guide
+
+Cisco Packet Tracer
+
+
+
+**Aim:** Configure an FTP server and perform file uploading and downloading between client computers.
+
+## **1. Create Network Topology**
+
+**Add devices:**
+
+- 1 Server
+- 1 Router (2 Ethernet interfaces)
+- 1 Switch (2950-24)
+- 2 PCs (PC0, PC1)
+
+**Connect using Copper Straight-Through:**
+
+- Server → Router E0/0
+- Router E0/1 → Switch
+- PC0 → Switch
+- PC1 → Switch
+
+## **2. Configure IP Addresses**
+
+Router → Config → Interface → Set IP and turn Port Status ON.
+
+| Device      | IP Address    | Subnet Mask     |
+| ----------- | ------------- | --------------- |
+| Router E0/0 | `10.10.10.1`  | `255.255.255.0` |
+| Router E0/1 | `192.168.0.1` | `255.255.255.0` |
+| Server      | `10.10.10.2`  | `255.255.255.0` |
+| PC0         | `192.168.0.2` | `255.255.255.0` |
+| PC1         | `192.168.0.3` | `255.255.255.0` |
+
+**Default Gateway:**
+
+- Server → `10.10.10.1`
+- PC0, PC1 → `192.168.0.1`
+
+## **3. Configure FTP Server**
+
+Server → Services → FTP → Service ON.
+
+Create user:
+
+| Field    | Value    |
+| -------- | -------- |
+| Username | `cisco1` |
+| Password | `test`   |
+
+Enable permissions:
+
+- Read
+- Write
+- Rename
+- List
+
+Click **Add**.
+
+## **4. Create File on Client**
+
+PC0 → Desktop → Text Editor.
+
+Enter:
+
+```
+Hello World, Testing FTP File For services
+```
+
+Save as `hello.txt`.
+
+## **5. Test Connectivity**
+
+PC0 → Desktop → Command Prompt:
+
+```
+ping 192.168.0.1
+ping 10.10.10.1
+ping 10.10.10.2
+```
+
+All should receive replies. First ping may time out due to ARP resolution.
+
+## **6. Connect to FTP Server**
+
+From PC0 → Desktop → Command Prompt:
+
+```
+ftp 10.10.10.2
+```
+
+Enter credentials:
+
+```
+Username: cisco1
+Password: test
+```
+
+Successful login message:
+
+```
+230 Logged in
+```
+
+## **7. Upload and Download Files**
+
+**Upload – Client to Server**
+
+```
+put hello.txt
+```
+
+**Download – Server to Client**
+
+```
+get hello.txt
+```
+
+**List server files**
+
+```
+dir
+```
+
+**Disconnect**
+
+```
+bye
+```
+
+Successful output
+
+```
+Transfer complete
+42 bytes copied
+```
+
+Note: The file must exist on the server before using `get`.
+
+## **8. Important FTP Commands**
+
+| Command           | Function              |
+| ----------------- | --------------------- |
+| `ftp IP_address`  | Connect to FTP server |
+| `put filename`    | Upload file           |
+| `get filename`    | Download file         |
+| `dir`             | List server files     |
+| `delete filename` | Delete file           |
+| `rename old new`  | Rename file           |
+| `help`            | Display commands      |
+| `bye`             | Disconnect            |
+
+## **9. Important Viva Concepts**
+
+| Term        | Meaning                                                       |
+| ----------- | ------------------------------------------------------------- |
+| FTP         | File Transfer Protocol                                        |
+| TCP 21      | Control connection                                            |
+| TCP 20      | Active-mode data connection                                   |
+| Passive FTP | Client initiates data connection using negotiated server port |
+| SFTP        | SSH File Transfer Protocol                                    |
+| FTPS        | FTP secured using TLS                                         |
+| PUT         | Upload                                                        |
+| GET         | Download                                                      |
+
+**Active vs Passive FTP**
+
+- Active: Server initiates data connection.
+- Passive: Client initiates data connection.
+
+**Why is FTP insecure?** Standard FTP transfers usernames, passwords and files without encryption.
+
+**Packet Tracer modes:**
+
+- Realtime – Normal network operation.
+- Simulation – Observe packet movement.
+
+## **10. Conclusion**
+
+Successfully configured an FTP server in Cisco Packet Tracer, created user authentication and performed file uploading and downloading between client computers.
+
+**Last-minute execution formula**
+
+## **Topology → Router IP → Device IP → FTP ON → User → Create File → Ping → PUT → GET**
+
+Remember these stages to perform Practical 4 independently.

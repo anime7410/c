@@ -1,0 +1,65 @@
+# **Practical 1 – Networking Commands Cheat Sheet**
+
+Quick execution guide
+
+**Step 1: Open Command Prompt**
+
+Press `Win + R` → Type `cmd` → Enter.
+
+**Step 2: Execute the following commands in sequence.**
+
+| No. | Command              | Purpose                        |
+| --- | -------------------- | ------------------------------ |
+| 1   | `hostname`           | Display computer name          |
+| 2   | `ping 192.168.1.1`   | Check connectivity             |
+| 3   | `ping -n 10 8.8.8.8` | Send 10 ping requests          |
+| 4   | `ipconfig`           | Display IP configuration       |
+| 5   | `ipconfig /all`      | Display detailed configuration |
+| 6   | `ipconfig /flushdns` | Clear DNS cache                |
+| 7   | `tracert google.com` | Trace network route            |
+| 8   | `pathping 8.8.8.8`   | Analyze route and packet loss  |
+| 9   | `netstat -ano`       | Display connections and PID    |
+| 10  | `route print`        | Display routing table          |
+| 11  | `nbtstat -n`         | Display local NetBIOS names    |
+
+**Step 3: Important additional commands**
+
+```
+ping -t 8.8.8.8
+ipconfig /release
+ipconfig /renew
+ipconfig /displaydns
+tracert -d google.com
+netstat -a
+netstat -r
+nbtstat -c
+```
+
+**Step 4: Observe outputs**
+
+- Ping → Reply, time, TTL, packet loss.
+- Hostname → Computer name.
+- Ipconfig → IPv4, subnet mask, gateway, MAC.
+- Tracert → Hop numbers and response times.
+- Pathping → Packet loss and RTT.
+- Netstat → Protocol, local address, foreign address, state.
+- Route → Destination, netmask, gateway, interface, metric.
+- Nbtstat → NetBIOS name information.
+
+**Step 5: Conclusion**
+
+Studied and executed various networking commands to examine IP configuration, connectivity, routing information, active connections and network diagnostics.
+
+Precaution
+
+- Use your actual IP addresses.
+- `/release` may disconnect your network.
+- Do not modify routing entries.
+- Stop continuous ping using `Ctrl + C`.
+- `pathping` takes time to complete.
+
+**Remember:** Ping = Connectivity | Ipconfig = IP details | Tracert = Route | Pathping = Packet loss | Netstat = Connections | Route = Routing table | Hostname = Computer name | Nbtstat = NetBIOS.
+
+
+
+
